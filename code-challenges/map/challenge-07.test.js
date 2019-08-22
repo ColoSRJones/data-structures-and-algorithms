@@ -220,5 +220,4 @@ describe('Testing challenge 7', () => {
     ]);
     expect(extractStats(snorlaxStats.stats).length).toStrictEqual(3);
   });
-});
 
