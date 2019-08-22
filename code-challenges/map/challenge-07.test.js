@@ -8,7 +8,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let result = [];
+  for (let num of arr) {
+	  result.push(2 ** num);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -17,7 +21,9 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let result= [];
+  arr.forEach(num => result.push(2 ** num));
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,9 +31,9 @@ CHALLENGE 3
 Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const mapTwoToThe = (arr) => {
-  // Solution code here...
-};
+const mapTwoToThe = (arr) => 
+  arr.map(num => 2 ** num);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -36,9 +42,7 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
-const charCode = (arr) => {
-  // Solution code here...
-};
+const charCode = (arr) => arr.map(char => char.charCodeAt(0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -47,9 +51,7 @@ If any element in the array is not a number, the resulting array should have the
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOdd = (arr) => {
-  // Solution code here...
-};
+const evenOdd = (arr) => arr.map(num => isNaN(num) ? 'N/A' : (num % 2 === 0 ? 'even' : 'odd'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -90,9 +92,7 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = (arr) => arr.map(dog => dog.ability.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -133,9 +133,7 @@ const snorlaxStats = {
   weight: 4600,
 };
 
-const extractStats = (arr) => {
-  // Solution code here...
-};
+const extractStats = (arr) => arr.map(baseball => { return {name: baseball.stat.name, total: baseball.baseStat + baseball.effort} });
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
