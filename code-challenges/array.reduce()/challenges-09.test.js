@@ -8,6 +8,10 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  const result = arr.reduce((accum, curr, i) => {
+    return i + 1;
+  }, 0);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,6 +71,11 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  const result = arr.reduce((accum, curr) => {
+    accum.push(curr.name);
+    return accum;
+  }, []);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,6 +86,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+ const realArr = str.split('');
+  const result = realArr.reduce((acc, cur) => {
+    acc.unshift(cur);
+    return acc;
+  }, []);
+  return result.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,6 +144,10 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  const result = arr.filter((el) => el.children).reduce((acc, cur) => {
+    return acc += cur.children.length;
+  }, 0);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,6 +158,14 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+ const result = arr.reduce((acc, cur, idx) => {
+    acc += cur;
+    if (idx === arr.length - 1) {
+      return acc / arr.length;
+    }
+    return acc;
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,6 +185,13 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  const result = arr.reduce((acc, cur) => {
+    if (isPrime(cur)) {
+      acc += 1;
+    }
+    return acc;
+  }, 0);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -199,6 +233,13 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+  const result = arr.reduce((acc, cur) => {
+    if (statName === cur.stat.name) {
+      acc = cur;
+    }
+    return acc;
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,6 +251,13 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  const filteredArray = arr.filter(character => /[a]/i.test(character.name));
+  return filteredArray.reduce((acc, ele) => {
+    if (ele.children) {
+      acc.push(...ele.children);
+    }
+    return acc;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
