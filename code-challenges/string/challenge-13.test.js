@@ -229,3 +229,5 @@ describe('Testing challenge 10', () => {
     expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
   });
 });
+
+
