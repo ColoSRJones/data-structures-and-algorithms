@@ -208,3 +208,4 @@ describe('Testing challenge 5', () => {
     expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
   });
 });
+
